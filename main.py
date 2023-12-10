@@ -4,6 +4,7 @@ import uvicorn
 from routes.RootRouter import router as rootRouter
 from util.seguranca import atualizar_cookie_autenticacao
 from repositories.UsuarioRepo import UsuarioRepo
+from routes.UsuarioRouter import router as usuarioRouter 
 
 UsuarioRepo.criar_tabela()
 UsuarioRepo.criar_administrador_padrao()
@@ -15,6 +16,8 @@ app.middleware("http")(atualizar_cookie_autenticacao)
 app.mount(path="/static", app=StaticFiles(directory="static"), name="static")
 
 app.include_router(rootRouter)
+app.include_router(usuarioRouter)
+
 
 if __name__ == "__main__":
     uvicorn.run(app="main:app", reload=True, port=8000)

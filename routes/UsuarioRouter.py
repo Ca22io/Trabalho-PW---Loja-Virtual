@@ -11,9 +11,11 @@ templates = Jinja2Templates(directory="templates")
 
 @router.get("/", response_class=HTMLResponse)
 async def get_index(request: Request, usuario: Usuario = Depends(obter_usuario_logado),):
+    
     if not usuario:
         raise HTTPException(status_code=status.HTTP_401_UNAUTHORIZED)
     if not usuario.admin:
         raise HTTPException(status_code=status.HTTP_403_FORBIDDEN)
     usuarios = UsuarioRepo.obter_todos()
+
     return templates.TemplateResponse("usuario/index.html", {"request": request, "usuario": usuario, "usuarios": usuarios},)
