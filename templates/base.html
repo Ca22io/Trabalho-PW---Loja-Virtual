@@ -12,19 +12,25 @@
         </title>
     </head>
     <body class="d-flex flex-column min-vh-100">
+
         <nav class="navbar navbar-expand-lg bg-body-secondary">
+            
             <div class="container">
+
                 <a class="navbar-brand" href="/">
                     <img src="/static/img/logotipo.svg" alt="Logotipo Loja
 Virtual" height="48">
                 </a>
+
                 <button class="navbar-toggler" type="button"
                     data-bstoggle="collapse" data-bs-target="#navbarPrincipal"
                     aria-expanded="false">
                     <span class="navbar-toggler-icon"></span>
                 </button>
+
                 <div class="collapse navbar-collapse justify-content-end"
                     id="navbarPrincipal">
+
                     <div class="navbar-nav">
                         <a
                             class="nav-link text-center {{'active' if request.url.path == '/'}}"
@@ -50,10 +56,14 @@ Virtual" height="48">
                 </div>
             </div>
         </nav>
+
+        {% include "includes/mensagem.html" with context %}
+
         <main class="container my-4">
             {% block principal %}
             {% endblock %}
         </main>
+
         <footer class="p-3 text-bg-dark text-center mt-auto">
             <div class="col-6 offset-3">
                 <p class="small m-0">
@@ -66,12 +76,14 @@ Virtual" height="48">
                         Prof. Ricardo Maroquio
                         ao longo do segundo semestre de 2023.</span><br>
                     Desenvolvido por:<br>
-                    <b>Nome Aluno 1</b> & <b>Nome Aluno 2</b><br>
+                    <b>Cássio Bindaco</b><br>
                     Copyright &copy; 2023<br>
                     Todos os direitos reservados
                 </p>
             </div>
         </footer>
+
         <script src="/static/lib/bootstrap/bootstrap.bundle.min.js"></script>
+    
     </body>
 </html>
