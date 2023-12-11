@@ -15,31 +15,42 @@
         <nav class="navbar navbar-expand-lg bg-body-secondary">
             <div class="container">
                 <a class="navbar-brand" href="/">
-                    <img src="/static/img/logotipo.svg" alt="Logotipo Loja
-Virtual" height="48">
+                    <img src="/static/img/logotipo.svg"
+                        alt="Logotipo Loja Virtual" height="48">
                 </a>
                 <button class="navbar-toggler" type="button"
-                    data-bstoggle="collapse" data-bs-target="#navbarPrincipal"
-                    aria-expanded="false">
+                    data-bs-toggle="collapse" data-bs-target="#navbarPrincipal"
+                    aria-controls="navbarPrincipal" aria-expanded="false"
+                    aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="collapse navbar-collapse justify-content-end"
                     id="navbarPrincipal">
                     <div class="navbar-nav">
-                        <a class="nav-link text-center {{'active' if
-request.url.path == '/'}}" href="/">Principal</a>
+                        <a
+                            class="nav-link text-center {{'active' if request.url.path == '/'}}"
+                            href="/">Principal</a>
                         {% if not usuario: %}
-                        <a class="nav-link text-center {{'active' if
-request.url.path == '/login'}}" href="/login">Entrar</a>
+                        <a
+                            class="nav-link text-center text-success {{'active' if request.url.path == '/usuario/novo'}}"
+                            href="/usuario/novo">Criar Conta</a>
+                        <a
+                            class="nav-link text-center {{'active' if request.url.path == '/login'}}"
+                            href="/login">Entrar</a>
                         {% else: %}
                         {% if usuario.admin: %}
-                        <a class="nav-link text-center {{'active' if
-request.url.path == '/produto/'}}" href="/produto">Produtos</a>
-                        <a class="nav-link text-center {{'active' if
-request.url.path == '/usuario/'}}" href="/usuario">Usuários</a>
+                        <a
+                            class="nav-link text-center {{'active' if request.url.path == '/produto/'}}"
+                            href="/produto">Produtos</a>
+                        <a
+                            class="nav-link text-center {{'active' if request.url.path == '/usuario/'}}"
+                            href="/usuario">Usuários</a>
+                        <a class="nav-link text-center text-success {{'active' if request.url.path == '/usuario/arearestrita'}}"
+                            href="/usuario/arearestrita">Área Restrita</a>
                         {% endif %}
-                        <a class="nav-link text-center {{'active' if
-request.url.path == '/logout'}}" href="/logout">Sair</a>
+                        <a
+                            class="nav-link text-center {{'active' if request.url.path == '/logout'}}"
+                            href="/logout">Sair</a>
                         {% endif %}
                     </div>
                 </div>
