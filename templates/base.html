@@ -1,11 +1,9 @@
 <html>
     <head>
         <link rel="stylesheet" href="/static/lib/bootstrap/bootstrap.min.css">
-        <link rel="stylesheet"
-            href="/static/lib/bootstrap-icons/font/bootstrapicons.min.css">
+        <link rel="stylesheet" href="/static/lib/bootstrap-icons/font/bootstrap-icons.min.css">
         <link rel="stylesheet" href="/static/css/estilos.css">
-        <link rel="shortcut icon" href="/static/img/icone.svg"
-            type="image/xicon">
+        <link rel="shortcut icon" href="/static/img/icone.svg" type="image/xicon">
         <title>
             Loja Virtual ::
             {% block titulo %}{% endblock %}
@@ -45,9 +43,9 @@
                         <a
                             class="nav-link text-center {{'active' if request.url.path == '/usuario/'}}"
                             href="/usuario">Usuários</a>
-                        <a class="nav-link text-center text-success {{'active' if request.url.path == '/usuario/arearestrita'}}"
-                            href="/usuario/arearestrita">Área Restrita</a>
                         {% endif %}
+                        <a class="nav-link text-center text-success {{'active' if request.url.path == '/arearestrita'}}"
+                            href="/arearestrita">Área Restrita</a>
                         <a
                             class="nav-link text-center {{'active' if request.url.path == '/logout'}}"
                             href="/logout">Sair</a>
@@ -56,6 +54,7 @@
                 </div>
             </div>
         </nav>
+        {% include "includes/mensagem.html" with context %}
         <main class="container my-4">
             {% block principal %}
             {% endblock %}

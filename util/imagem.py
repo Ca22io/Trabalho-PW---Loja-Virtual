@@ -9,7 +9,7 @@ def transformar_em_quadrada(imagem_original, tamanho_maximo=480):
         nova_altura = int(altura * razao)
         imagem_original = imagem_original.resize((nova_largura, nova_altura), Image.Resampling.LANCZOS)
         largura, altura = nova_largura, nova_altura
-    imagem_quadrada = Image.new("RGB", (tamanho_maximo, tamanho_maximo), (37, 37, 37))
+    imagem_quadrada = Image.new("RGB", (tamanho_maximo, tamanho_maximo), (255, 255, 255))
     x_offset = (tamanho_maximo - largura) // 2
     y_offset = (tamanho_maximo - altura) // 2
     imagem_quadrada.paste(imagem_original, (x_offset, y_offset))

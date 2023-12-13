@@ -2,9 +2,9 @@ from fastapi import FastAPI
 from fastapi.staticfiles import StaticFiles
 import uvicorn
 from routes.RootRouter import router as rootRouter
+from routes.UsuarioRouter import router as usuarioRouter
 from util.seguranca import atualizar_cookie_autenticacao
 from repositories.UsuarioRepo import UsuarioRepo
-from routes.UsuarioRouter import router as usuarioRouter
 from repositories.ProdutoRepo import ProdutoRepo
 from routes.ProdutoRouter import router as produtoRouter
 from util.excecoes import configurar_paginas_de_erro
@@ -26,4 +26,4 @@ app.include_router(usuarioRouter)
 app.include_router(produtoRouter)
 
 if __name__ == "__main__":
-    uvicorn.run(app="main:app", reload=True, port=8000)
+    uvicorn.run(app="main:app", reload=True)
